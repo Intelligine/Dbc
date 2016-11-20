@@ -4,8 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("DesignByContract")]
-[assembly: AssemblyDescription("Provides support for Design By Contract")]
+[assembly: AssemblyTitle("Intelligine.DesignByContract")]
+[assembly: AssemblyDescription(@"Provides support for Design By Contract as described by Bertrand Meyer in his seminal book, Object - Oriented Software Construction(2nd Ed) Prentice Hall 1997 (See chapters 11 and 12).
+See also Building Bug - free O - O Software: An Introduction to Design by Contract
+
+http://www.eiffel.com/doc/manuals/technology/contract/")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 
 // to COM components.  If you need to access a type in this assembly from 

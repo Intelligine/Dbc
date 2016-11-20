@@ -41,17 +41,18 @@ http://cakebuild.net
 [CmdletBinding()]
 Param(
     [string]$Script = "build.cake",
+	[Parameter(Position=0,Mandatory=$false)]
     [string]$Target = "Default",
     [ValidateSet("Release", "Debug")]
     [string]$Configuration = "Debug",
     [ValidateSet("Quiet", "Minimal", "Normal", "Verbose", "Diagnostic")]
-    [string]$Verbosity = "Verbose",
+    [string]$Verbosity = "Minimal",
     [switch]$Experimental,
     [Alias("DryRun","Noop")]
     [switch]$WhatIf,
     [switch]$Mono,
     [switch]$SkipToolPackageRestore,
-    [Parameter(Position=0,Mandatory=$false,ValueFromRemainingArguments=$true)]
+    [Parameter(Position=1,Mandatory=$false,ValueFromRemainingArguments=$true)]
     [string[]]$ScriptArgs
 )
 

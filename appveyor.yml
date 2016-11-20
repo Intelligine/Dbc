@@ -1,0 +1,13 @@
+cache:
+ - packages -> src\**\packages.config
+ - tools -> build.cake
+skip_commits:
+  files:
+    -  README.md
+image: Visual Studio 2015
+build_script:
+- ps: .\build.ps1 -target CI
+artifacts:
+  - path: .\artifacts\**\*.nupkg
+    name: NuGet
+test: off
