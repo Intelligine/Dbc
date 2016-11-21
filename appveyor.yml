@@ -4,6 +4,7 @@ cache:
 skip_commits:
   files:
     -  README.md
+    -  LICENSE
 image: Visual Studio 2015
 build_script:
 - ps: .\build.ps1 -target CI
