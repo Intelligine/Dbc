@@ -30,7 +30,7 @@ var author ="Lars Kjær Thomsen";
 var authors = new[] {author};
 var company ="Intelligine";
 var owners = new[] {author};
-var projectUrl = new Uri("https://github.com/Intelligine/DesignByContract/");
+var projectUrl = new Uri("https://github.com/Intelligine/Dbc/");
 var licenseUrl = new Uri("http://opensource.org/licenses/MIT");
 var copyright = string.Format("© {0} 2016 - {1}", author,DateTime.Now.Year);
 var product = solutionName;
@@ -140,7 +140,7 @@ Task("Package")
                             ProjectUrl              = projectUrl,
                             LicenseUrl              = licenseUrl,
                             Copyright               = copyright,
-                            Tags                    = new [] {company,"DesignByContract", "DbC"},
+                            Tags                    = new [] {"DesignByContract", "DbC"},
                             NoPackageAnalysis       = true,
 							BasePath = string.Format("{0}/bin/{1}",dir.FullPath,configuration),
 							OutputDirectory = libraryArtifactsDir,
