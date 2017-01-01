@@ -7,7 +7,7 @@ skip_commits:
     -  LICENSE
 image: Visual Studio 2015
 build_script:
-- ps: .\build.ps1 -target CI
+- ps: .\build.ps1 -target CI -configuration "Release"
 artifacts:
   - path: .\artifacts\**\*.nupkg
     name: NuGet
