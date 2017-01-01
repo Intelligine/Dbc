@@ -7,7 +7,7 @@ using JetBrains.Annotations;
 
 #endregion
 
-namespace Intelligine.DesignByContract
+namespace Dbc
 {
     /// <summary>
     ///     Design By Contract Checks.

@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 
 #endregion
 
-namespace Intelligine.DesignByContract
+namespace Dbc
 {
     /// <summary>
     ///     Exception raised when a postcondition fails.

@@ -7,8 +7,8 @@
     <ProjectGuid>{BC65DE62-0EA7-4F97-A08B-078CAA2ED2F1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Intelligine.DesignByContract</RootNamespace>
-    <AssemblyName>Intelligine.DesignByContract</AssemblyName>
+    <RootNamespace>Dbc</RootNamespace>
+    <AssemblyName>Dbc</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

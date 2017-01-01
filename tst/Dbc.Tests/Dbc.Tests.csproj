@@ -7,8 +7,8 @@
     <ProjectGuid>{03B83BF8-3CE1-4D5D-AF84-6F4CC2891694}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Intelligine.DesignByContract.Tests</RootNamespace>
-    <AssemblyName>Intelligine.DesignByContract.Tests</AssemblyName>
+    <RootNamespace>Dbc.Tests</RootNamespace>
+    <AssemblyName>Dbc.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -79,9 +79,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\DesignByContract\DesignByContract.csproj">
+    <ProjectReference Include="..\..\src\Dbc\Dbc.csproj">
       <Project>{bc65de62-0ea7-4f97-a08b-078caa2ed2f1}</Project>
-      <Name>DesignByContract</Name>
+      <Name>Dbc</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

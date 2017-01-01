@@ -12,9 +12,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".bld", ".bld", "{9474D794-8
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignByContract", "src\DesignByContract\DesignByContract.csproj", "{BC65DE62-0EA7-4F97-A08B-078CAA2ED2F1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dbc", "src\Dbc\Dbc.csproj", "{BC65DE62-0EA7-4F97-A08B-078CAA2ED2F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignByContract.Tests", "src\DesignByContract.Tests\DesignByContract.Tests.csproj", "{03B83BF8-3CE1-4D5D-AF84-6F4CC2891694}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dbc.Tests", "tst\Dbc.Tests\Dbc.Tests.csproj", "{03B83BF8-3CE1-4D5D-AF84-6F4CC2891694}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -6,7 +6,7 @@ using Xunit;
 
 #endregion
 
-namespace Intelligine.DesignByContract.Tests
+namespace Dbc.Tests
 {
     public class CheckShould 
     {
