@@ -19,7 +19,7 @@ var tstBinGlob = "./tst/**/bin/"+configuration;
 var artifactsDir = Directory("./artifacts");
 var libraryArtifactsDir = Directory("./artifacts/library");
 
-var solutionName = "Intelligine.DesignByContract";
+var solutionName = "Dbc";
 var solutionFile = string.Format("./{0}.sln",solutionName);
 
 var nugetFilePaths = GetFiles("./src/*/*.csproj",fileSystemInfo => !fileSystemInfo.Path.FullPath.EndsWith("Tests", StringComparison.OrdinalIgnoreCase));
@@ -70,33 +70,19 @@ Task("Build")
 		settings.SetVerbosity(verbosity);
 		settings.SetMaxCpuCount(0);
 	});
-}).Finally(() =>
-{  
-	RunTarget("RestoreMetadata");
 });
 
 Task("Test")
     .IsDependentOn("Build")
 	.Does(() =>
-	{
-	
-		var testAssemblyes =  GetFiles("./src/*.Tests/*.csproj").Select(project => project​.GetDirectory().FullPath + "/bin/"+ configuration + "/"+ ParseProject(project​.FullPath).AssemblyName+".dll");
-
-		XUnit2(testAssemblyes, new XUnit2Settings { Parallelism = ParallelismOption.All, ShadowCopy = false});
-
-	});
-
-
-Task("RestoreMetadata").Does(() =>
 {
-	string file = "GlobalAssemblyInfo.cs";
+	
+	var testAssemblyes =  GetFiles("./tst/*.Tests/*.csproj").Select(project => project​.GetDirectory().FullPath + "/bin/"+ configuration + "/"+ ParseProject(project​.FullPath).AssemblyName+".dll");
 
-	string temp = "GlobalAssemblyInfo.cs.temp";
+	XUnit2(testAssemblyes, new XUnit2Settings { Parallelism = ParallelismOption.All, ShadowCopy = false});
 
-	CopyFile(temp, file);
-
-	DeleteFile(temp);
 });
+
 
 Task("Version")
     .Does(() =>
@@ -165,6 +151,21 @@ Task("Package")
                         };
 		
 		NuGetPack(nuGetPackSettings);
+	}
+});
+
+Teardown(context =>
+{
+	var file = File("GlobalAssemblyInfo.cs");
+
+	var temp = File("GlobalAssemblyInfo.cs.temp");
+	
+	if(FileExists(temp))
+	{
+
+		CopyFile(temp, file);
+
+		DeleteFile(temp);
 	}
 });
 
