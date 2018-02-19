@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuration", "Configuration", "{C30D365C-0B08-4581-BFC2-B5341BEC2717}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		appveyor.yml = appveyor.yml
+		build.ps1 = build.ps1
+		default.ps1 = default.ps1
+		GitVersion.yml = GitVersion.yml
+		tools\packages.config = tools\packages.config
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dbc", "src\Dbc\Dbc.csproj", "{064AF81A-7E79-44DF-9965-A3E3154D766F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{064AF81A-7E79-44DF-9965-A3E3154D766F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{064AF81A-7E79-44DF-9965-A3E3154D766F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{064AF81A-7E79-44DF-9965-A3E3154D766F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{064AF81A-7E79-44DF-9965-A3E3154D766F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5E4158E1-D40E-4F67-B283-7477EA93F61A}
+	EndGlobalSection
+EndGlobal
