@@ -1,10 +1,10 @@
 #globals
-$GitVersion = Join-Path $TOOLS_DIR GitVersion.CommandLine\tools\GitVersion.exe
+$GIT_VERSION = Join-Path $TOOLS_DIR GitVersion.CommandLine\tools\GitVersion.exe
 
-$TEMP_Dir = "$BuildRoot\temp"
-$ARTIFACTS_Dir = "$BuildRoot\artifacts"
+$TEMP_DIR = "$BuildRoot\temp"
+$ARTIFACTS_DIR = "$BuildRoot\artifacts"
 
-Set-Alias GitVersion ($GitVersion)
+Set-Alias GitVersion ($GIT_VERSION)
 
 $Authors = "lkt"
 $Company = "Intelligine"
@@ -29,8 +29,11 @@ task Version {
 task Clean {
     exec { & dotnet clean }
 
-    rm $TEMP_Dir -Recurse -Force -ErrorAction 0
-    rm $ARTIFACTS_Dir -Recurse -Force -ErrorAction 0
+    rm $TEMP_DIR -Recurse -Force -ErrorAction 0
+    rm $ARTIFACTS_DIR -Recurse -Force -ErrorAction 0
+
+    mkdir $TEMP_DIR -Force | Out-Null
+    mkdir $ARTIFACTS_DIR -Force | Out-Null
 }
 
 task Build Version, Restore, Clean, {
@@ -42,21 +45,18 @@ task Build Version, Restore, Clean, {
 
 task Pack Build, {
 
-    mkdir $ARTIFACTS_Dir -Force | Out-Null
-    mkdir $TEMP_Dir -Force | Out-Null
-
     $packageVersion = $script:Version.FullSemVer
     $script:packageVersion = $packageVersion
 
-    exec { & dotnet pack src\Dbc --no-build --no-restore --output "$ARTIFACTS_Dir/lib" /p:Authors="$Authors" /p:Company="$Company" /p:PackageVersion=$script:packageVersion /p:NoPackageAnalysis=true -c $Configuration}
+    exec { & dotnet pack src\Dbc --no-build --no-restore --output "$ARTIFACTS_DIR/lib" /p:Authors="$Authors" /p:Company="$Company" /p:PackageVersion=$script:packageVersion /p:NoPackageAnalysis=true -c $Configuration}
 
 }
 
 task Push -If $env:APPVEYOR {
 
-    Get-Item "$ARTIFACTS_Dir/lib/*.nupkg" | % {
+    Get-Item "$ARTIFACTS_DIR/lib/*.nupkg" | % {
         $path = $_.FullName
-        #exec { Nuget push $_.FullName $env:Nuget_Api_Key -Source $env:Nuget_Feed_Push }
+        exec { Nuget push $_.FullName $env:Nuget_Api_Key -Source $env:Nuget_Feed_Push }
     }
 }
 
