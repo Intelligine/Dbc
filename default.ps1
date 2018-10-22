@@ -11,7 +11,6 @@ $Company = "Intelligine"
 
 #tasks
 task Restore -If {$SkipPackageRestore -eq $false} {
-
     exec { & dotnet restore }
 }
 
@@ -22,6 +21,9 @@ task Version {
     $buildNumber = $script:Version.FullSemVer + ".build."  + $env:APPVEYOR_BUILD_NUMBER
 
     $script:buildNumber = $buildNumber
+    $env:branchName =  $script:Version.BranchName
+    $env:branchName
+    $env:APPVEYO
 
 }, PublishVersion
 
@@ -48,21 +50,22 @@ task Pack Build, {
     $packageVersion = $script:Version.FullSemVer
     $script:packageVersion = $packageVersion
 
-    exec { & dotnet pack src\Dbc --no-build --no-restore --output "$ARTIFACTS_DIR/lib" /p:Authors="$Authors" /p:Company="$Company" /p:PackageVersion=$script:packageVersion /p:NoPackageAnalysis=true -c $Configuration}
-
+    exec { & dotnet pack src\Dbc --no-build --no-restore --output "$ARTIFACTS_DIR\lib" /p:Authors="$Authors" /p:Company="$Company" /p:PackageVersion=$script:packageVersion /p:NoPackageAnalysis=true -c $Configuration}
 }
 
-task Push -If $env:APPVEYOR {
 
-    Get-Item "$ARTIFACTS_DIR/lib/*.nupkg" | % {
-        $path = $_.FullName
-        exec { Nuget push $_.FullName $env:Nuget_Api_Key -Source $env:Nuget_Feed_Push }
+task Push -If $env:APPVEYOR { 
+
+    if($env:branchName  -like "master") {
+
+        Get-Item "$ARTIFACTS_DIR\lib\*.nupkg" | % {
+            $path = $_.FullName
+            exec { Nuget push $_.FullName $env:Nuget_Api_Key -Source $env:Nuget_Feed_Push }
+        }
     }
 }
 
-
-task Release -If $env:APPVEYOR Push, {
-}
+task Release Push -If $env:APPVEYOR
 
 task CI Pack, Release
 
