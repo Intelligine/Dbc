@@ -6,9 +6,6 @@ $ARTIFACTS_DIR = "$BuildRoot\artifacts"
 
 Set-Alias GitVersion ($GIT_VERSION)
 
-$Authors = "lkt"
-$Company = "Intelligine"
-
 #tasks
 task Restore -If {$SkipPackageRestore -eq $false} {
     exec { & dotnet restore }
@@ -22,8 +19,6 @@ task Version {
 
     $script:buildNumber = $buildNumber
     $env:branchName =  $script:Version.BranchName
-    $env:branchName
-    $env:APPVEYO
 
 }, PublishVersion
 
@@ -42,7 +37,7 @@ task Build Version, Restore, Clean, {
     $AssemblySemFileVer = $script:Version.AssemblySemFileVer
     $AssemblySemVer = $script:Version.AssemblySemVer
     $InformationalVersion = $script:Version.InformationalVersion
-    exec { & dotnet build -v $Verbosity -c $Configuration --no-restore /p:AssemblyVersion=$AssemblySemVer /p:Authors=$Authors /p:Company=$Company /p:FileVersion=$AssemblySemFileVer /p:InformationalVersion=$InformationalVersion}
+    exec { & dotnet build -v $Verbosity -c $Configuration --no-restore /p:AssemblyVersion=$AssemblySemVer /p:FileVersion=$AssemblySemFileVer /p:InformationalVersion=$InformationalVersion}
 }
 
 task Pack Build, {
@@ -50,7 +45,7 @@ task Pack Build, {
     $packageVersion = $script:Version.FullSemVer
     $script:packageVersion = $packageVersion
 
-    exec { & dotnet pack src\Dbc --no-build --no-restore --output "$ARTIFACTS_DIR\lib" /p:Authors="$Authors" /p:Company="$Company" /p:PackageVersion=$script:packageVersion /p:NoPackageAnalysis=true -c $Configuration}
+    exec { & dotnet pack src\Dbc --no-build --no-restore --output "$ARTIFACTS_DIR\lib" /p:PackageVersion=$script:packageVersion /p:NoPackageAnalysis=true -c $Configuration}
 }
 
 
