@@ -22,8 +22,6 @@ task Version {
 
     $script:buildNumber = $buildNumber
     $env:branchName =  $script:Version.BranchName
-    $env:branchName
-    $env:APPVEYO
 
 }, PublishVersion
 
