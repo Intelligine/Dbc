@@ -13,6 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuration", "Configurat
 		default.ps1 = default.ps1
 		GitVersion.yml = GitVersion.yml
 		tools\packages.config = tools\packages.config
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dbc", "src\Dbc\Dbc.csproj", "{064AF81A-7E79-44DF-9965-A3E3154D766F}"
