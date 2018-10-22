@@ -1,7 +1,6 @@
 cache:
  - C:\Users\appveyor\AppData\Local\NuGet\Cache
  - tools -> packages.config
-skip_tags: true
 skip_commits:
   files:
     -  README.md
