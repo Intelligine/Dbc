@@ -1,10 +1,17 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>Dbc</AssemblyName>
     <RootNamespace>Dbc</RootNamespace>
     <DefineConstants>JETBRAINS_ANNOTATIONS;</DefineConstants>
+    <Description>Provides support for Design By Contract as described by Bertrand Meyer in his seminal book, Object-Oriented Software Construction (2nd Ed) Prentice Hall 1997 (See chapters 11 and 12).
+See also Building Bug-free O-O Software: An Introduction to Design by Contract
+http://www.eiffel.com/doc/manuals/technology/contract/</Description>
+    <PackageTags>designbycontract dbc</PackageTags>
+    <RepositoryUrl>https://github.com/Intelligine/Dbc</RepositoryUrl>
+    <Company>Intelligine</Company>
+    <Authors>lkt82</Authors>
   </PropertyGroup>
 
   <ItemGroup>
